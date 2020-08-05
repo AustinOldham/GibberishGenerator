@@ -15,9 +15,19 @@ do
 
 done
 
+if [[ -z "${SEED// }" ]]; then
+	SEED=$(date +%s%N)
+fi
+
+if [[ -z "${NUM// }" ]]; then
+	NUM=10
+fi
 
 echo "SEED = $SEED"
 echo "NUM = $NUM"
+
+mkdir -p bin
+mkdir -p build
 
 make
 
